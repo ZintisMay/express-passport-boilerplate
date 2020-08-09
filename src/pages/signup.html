@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	Signup
+	<a href="/login" >login</a>
+	<form id="theForm" >
+		<input id="username" type="text" name="username" value="Testtest">
+		<input id="password" type="text" name="password" value="Testtest">
+		<input id="email" type="text" name="email" value="Testtest@test.com">
+		<input type="submit" name="" value="submit">
+	</form>
+	<script type="text/javascript">
+
+		theForm.addEventListener("submit", (e) => {
+			e.preventDefault();
+			const formData = new FormData(theForm)
+			for (var pair of formData.entries()) {
+			  console.log(pair[0] + ': ' + pair[1]);
+			}
+
+			// let url = "/testPost"
+			let payload = {username:username.value, password:password.value,email:email.value}
+			console.log(payload)
+
+			fetch("/auth/signup", {
+			    method: 'post',
+			    body: JSON.stringify(payload),
+			    headers: {
+			      'Content-Type': 'application/json'
+ 			      // 'Content-Type': 'application/x-www-form-urlencoded',
+			    },
+ 
+			})
+  		.then(res => res.json())
+			.then((res)=>{
+				console.log(res)
+
+			})
+			.catch((err)=>{
+				console.log(err)
+			})
+			
+
+		})
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "dbUri": "mongodb://localhost/react_passport",
+  "dbUri": "mongodb://localhost/express-passport-boilerplate",
+  "jwtSecret": "jwtSecret"
+}
